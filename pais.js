@@ -125,7 +125,6 @@ async function carregarAvaliacoes(aluno, bimestreSelecionado) {
           <tr>
             <th>Avaliação</th>
             <th>Data</th>
-            <th>Conteúdo</th>
             <th>Nota</th>
             <th>Observação</th>
           </tr>
@@ -138,7 +137,6 @@ async function carregarAvaliacoes(aluno, bimestreSelecionado) {
       <tr>
         <td>${av.titulo}</td>
         <td>${formatarData(av.dataAvaliacao)}</td>
-        <td>${av.conteudo || "Não informado"}</td>
         <td>${Number(av.nota).toFixed(1).replace(".", ",")}</td>
         <td>${av.observacao || "Sem observação específica."}</td>
       </tr>
