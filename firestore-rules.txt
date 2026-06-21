@@ -1,0 +1,42 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function estaLogado() {
+      return request.auth != null;
+    }
+
+    function usuarioAtual() {
+      return get(/databases/$(database)/documents/usuarios/$(request.auth.uid)).data;
+    }
+
+    function ehProfessor() {
+      return estaLogado() && usuarioAtual().tipo == "professor";
+    }
+
+    function ehResponsavel() {
+      return estaLogado() && usuarioAtual().tipo == "responsavel";
+    }
+
+    match /usuarios/{userId} {
+      allow read: if estaLogado() && (request.auth.uid == userId || ehProfessor());
+      allow write: if ehProfessor();
+    }
+
+    match /alunos/{alunoId} {
+      allow read: if ehProfessor() ||
+        (ehResponsavel() && resource.data.responsavelUid == request.auth.uid);
+
+      allow write: if ehProfessor();
+    }
+
+    match /avaliacoes/{avaliacaoId} {
+      allow read: if ehProfessor() ||
+        (ehResponsavel() &&
+        get(/databases/$(database)/documents/alunos/$(resource.data.alunoId)).data.responsavelUid == request.auth.uid);
+
+      allow write: if ehProfessor();
+    }
+  }
+}

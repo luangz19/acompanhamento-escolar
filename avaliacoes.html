@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar Avaliações</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Gerenciar Avaliações</h1>
+      <p id="usuarioNome"></p>
+    </div>
+    <div class="topbar-actions">
+      <a href="professor.html" class="link-btn">Voltar ao Painel</a>
+      <button id="sairBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Filtros</h2>
+
+      <div class="filters">
+        <div>
+          <label>Bimestre</label>
+          <select id="filtroBimestre">
+            <option value="todos">Todos</option>
+            <option value="1º Bimestre">1º Bimestre</option>
+            <option value="2º Bimestre">2º Bimestre</option>
+            <option value="3º Bimestre">3º Bimestre</option>
+            <option value="4º Bimestre">4º Bimestre</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Aluno</label>
+          <select id="filtroAluno">
+            <option value="todos">Todos</option>
+          </select>
+        </div>
+
+        <button id="btnFiltrar">Buscar avaliações</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Avaliações dos alunos</h2>
+      <div id="listaAvaliacoes"></div>
+    </section>
+
+    <section id="secaoEdicao" class="card hidden">
+      <h2>Editar avaliação</h2>
+
+      <form id="formEdicao">
+        <input type="hidden" id="avaliacaoId">
+
+        <label>Aluno</label>
+        <input type="text" id="editAluno" disabled>
+
+        <label>Título da avaliação</label>
+        <input type="text" id="editTitulo" required>
+
+        <label>Bimestre</label>
+        <select id="editBimestre" required>
+          <option value="1º Bimestre">1º Bimestre</option>
+          <option value="2º Bimestre">2º Bimestre</option>
+          <option value="3º Bimestre">3º Bimestre</option>
+          <option value="4º Bimestre">4º Bimestre</option>
+        </select>
+
+        <label>Data</label>
+        <input type="date" id="editData" required>
+
+        <label>Conteúdo</label>
+        <input type="text" id="editConteudo" required>
+
+        <label>Nota</label>
+        <input type="number" id="editNota" min="0" max="10" step="0.1" required>
+
+        <label>Observação</label>
+        <textarea id="editObservacao" required></textarea>
+
+        <button type="submit">Salvar alteração</button>
+        <button type="button" id="btnCancelar" class="btn-secundario">Cancelar</button>
+        <p id="mensagemEdicao"></p>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="avaliacoes.js"></script>
+</body>
+</html>

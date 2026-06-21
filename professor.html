@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel do Professor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Painel do Professor</h1>
+      <p id="usuarioNome"></p>
+    </div>
+    <div class="topbar-actions">
+      <a href="avaliacoes.html" class="link-btn">Ver/Editar Avaliações</a>
+      <a href="cadastro-alunos.html" class="link-btn">Cadastro em Lote</a>
+      <button id="sairBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Lançar avaliação</h2>
+
+      <form id="notasForm">
+        <label>Título da prova</label>
+        <input type="text" id="titulo" required placeholder="Ex: 1ª Avaliação">
+
+        <label>Bimestre</label>
+        <select id="bimestre" required>
+          <option value="1º Bimestre">1º Bimestre</option>
+          <option value="2º Bimestre">2º Bimestre</option>
+          <option value="3º Bimestre">3º Bimestre</option>
+          <option value="4º Bimestre">4º Bimestre</option>
+        </select>
+
+        <label>Data da prova</label>
+        <input type="date" id="dataAvaliacao" required>
+
+        <label>Aluno</label>
+        <select id="alunoId" required>
+          <option value="">Selecione um aluno</option>
+        </select>
+
+        <label>Nota</label>
+        <input type="number" id="nota" min="0" max="10" step="0.1" required>
+
+        <label>Observação</label>
+        <textarea id="observacao" placeholder="Observação para os pais"></textarea>
+
+        <button type="submit">Salvar nota</button>
+        <p id="mensagem"></p>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="professor.js"></script>
+</body>
+</html>
