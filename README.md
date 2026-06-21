@@ -44,6 +44,6 @@ As principais coleções são:
 ```text
 usuarios
 alunos
-avaliacoes
+avaliacoes´´´
 
 link: https://luangz19.github.io/acompanhamento-escolar/
