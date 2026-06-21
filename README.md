@@ -37,13 +37,15 @@ O sistema utiliza Firebase Authentication para login e Cloud Firestore para arma
 - Cloud Firestore
 - GitHub Pages
 
-## Estrutura do Firestore
+## Sistema Online
 
-As principais coleções são:
+Link de acesso:
+
+https://luangz19.github.io/acompanhamento-escolar/
+
+## Principais Coleções
 
 ```text
 usuarios
 alunos
-avaliacoes´´´
-
-link: https://luangz19.github.io/acompanhamento-escolar/
+avaliacoes
